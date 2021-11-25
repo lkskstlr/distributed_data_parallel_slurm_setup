@@ -10,7 +10,7 @@ This repository contains files that enable the usage of DDP on a cluster managed
 * Edit `distributed_data_parallel_slurm_setup.sbatch` to adapt the SLURM launch parameters:
   * `--nodes=1`: Number of nodes
   * `--ntasks-per-node=X`: Number of tasks per node. Each task will have one GPU, which gives `nodes*X` total GPUs
-  * `--gres=gpu:X,12G`: Should be the same as `ntasks-per-node`. Request the amount of VRAM per GPU that you need.
+  * `--gres=gpu:X,VRAM:12G`: Should be the same as `ntasks-per-node`. Request the amount of VRAM per GPU that you need.
   * `--cpus-per-task=1`: Number of CPU cores per task. Usually a number larger than 1 is better, maybe 3 to 6.
   * `--mem=4G`: RAM per node. Set to `10*X` if one task needs `10G` of RAM.
   * `--time=00:01:00`: Maximal runtime of the job (will be killed afterwards).
